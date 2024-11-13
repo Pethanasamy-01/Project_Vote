@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'header.html' %}
+    {% include 'footer.html' %}
+    <style>
+        body {
+            background: url('/static/image/4.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .header-container {
+            background: url('/static/image/1.jpg');
+            padding: 20px;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+            padding-left: 60%;
+        }
+        nav li {
+            margin: 0 10px;
+        }
+        .nav-button {
+            border-radius: 5px;
+            padding: 10px 15px;
+            background-color: white;
+            border: none;
+        }
+        .nav-button a {
+            text-decoration: none;
+            color: black;
+        }
+        h1, h2, h3 {
+            padding-left: 10%;
+            margin-top: 50px;
+            color: yellow;
+            font-size: 40px;
+        }
+        h2 {
+            color: white;
+        }
+        h3 {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <nav>
+            <ul>
+                <li><a class="nav-button" href="{{ url_for('signup') }}">Sign Up</a></li>
+                <li><a class="nav-button" href="{{ url_for('login') }}">Log In</a></li>
+                <li><a class="nav-button" href="{{ url_for('voters_list') }}">Voters List</a></li>
+                <li><a class="nav-button" href="{{ url_for('admin') }}">Admin</a></li>
+                <li><a class="nav-button" href="{{ url_for('vote') }}">Vote</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    {% block content %}
+       <h1> Welcome To <span style="color:white;">Our Page</span></h1>
+       <h2>For</h2>
+       <h3>Show Your <span>Power</span></h3>
+    {% endblock %}
+</body>
+</html>

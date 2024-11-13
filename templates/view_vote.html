@@ -1,0 +1,33 @@
+{% extends 'home_page.html' %}
+
+<body>
+{% block content %}
+ <style>
+     .custom-button {
+         padding: 15px 30px;
+         font-size: 16px;
+         color: white;
+         background-color: #007BFF;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         transition: background-color 0.3s;
+     }
+
+     .custom-button:hover {
+         background-color: #0056b3;
+
+     }
+     button{
+       margin-top:15%;
+
+     }
+ </style>
+
+ <button class="custom-button" style="margin-left:30%;">Python: {{ python }}</button>
+ <button class="custom-button">Java: {{ java }}</button>
+ <button class="custom-button">JavaScript: {{script}}</button>
+
+{% endblock %}
+</body>
+
