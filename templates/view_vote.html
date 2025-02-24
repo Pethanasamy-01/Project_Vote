@@ -1,33 +1,101 @@
 {% extends 'home_page.html' %}
 
-<body>
 {% block content %}
- <style>
-     .custom-button {
-         padding: 15px 30px;
-         font-size: 16px;
-         color: white;
-         background-color: #007BFF;
-         border: none;
-         border-radius: 5px;
-         cursor: pointer;
-         transition: background-color 0.3s;
-     }
+<style>
+    /* General Page Style */
+    body {
+        background-color: #e6f2ff; /* Light blue background */
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
 
-     .custom-button:hover {
-         background-color: #0056b3;
+    /* Table Container */
+    .table-container {
+        width: 80%;
+        max-width: 700px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    }
 
-     }
-     button{
-       margin-top:15%;
+    /* Table Style */
+    .custom-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
 
-     }
- </style>
+    .custom-table th, .custom-table td {
+        padding: 12px;
+        font-size: 18px;
+        text-align: center;
+        border-bottom: 2px solid #ddd;
+    }
 
- <button class="custom-button" style="margin-left:30%;">Python: {{ python }}</button>
- <button class="custom-button">Java: {{ java }}</button>
- <button class="custom-button">JavaScript: {{script}}</button>
+    .custom-table th {
+        background-color: #66b3ff;
+        color: white;
+    }
 
+    .custom-table tbody tr:nth-child(odd) {
+        background-color: #f2f9ff;
+    }
+
+    .custom-table tbody tr:hover {
+        background-color: #cce5ff;
+        transition: 0.3s;
+    }
+
+    /* Button Style */
+    .custom-button {
+        padding: 12px 25px;
+        font-size: 16px;
+        background-color: #3399ff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: 0.3s;
+    }
+
+    .custom-button:hover {
+        background-color: #1a75ff;
+    }
+</style>
+
+<!-- Table Container -->
+
+<div class="container" style="margin-top: 50px;">
+    <div class="col-md-offset-2 col-md-8">
+        <h1 class="page-header" style="padding-right: 40px; color: #ffffff;">Vote Counts</h1>
+        <div class="table-container">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Votes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Python</td>
+                        <td>{{ python }}</td>
+                    </tr>
+                    <tr>
+                        <td>Java</td>
+                        <td>{{ java }}</td>
+                    </tr>
+                    <tr>
+                        <td>JavaScript</td>
+                        <td>{{ script }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    
+</div>
 {% endblock %}
-</body>
-

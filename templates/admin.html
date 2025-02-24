@@ -2,24 +2,21 @@
 
 {% block style %}
 <style>
-    h1 {
-        margin-left: 10%;
-        color: #333; /* Darker text for better readability */
-    }
-    .button {
-        margin-left: 5%; /* Space from the left */
-        margin-top: 10px; /* Space between buttons */
-    }
+  
+  
 </style>
 {% endblock %}
 
 <body>
   {% block content %}
     <div class="container">
-        <h1>Welcome {{ admin_details.name }}:</h1>
-        <hr>
-        <a class="btn btn-primary button" href="{{ url_for('add_user') }}">Update Users</a>
-        <a class="btn btn-danger button" href="{{ url_for('logout') }}">Log Out</a>
+    <div class="col-md-offset-4 col-md-5" style="margin-top: 7%;">
+      <h1 class="page-header " style="color: rgb(255, 255, 255);">{{ admin_details.name| upper }}</h1>
+      <a class="btn btn-primary" href="{{ url_for('add_user') }}" style="margin-right: 10px; font-size: 20px;">Update Users</a>
+      <a class="btn btn-primary" href="{{ url_for('view_vote') }}" style="margin-right: 10px;font-size: 20px;">View Votes</a>
+      <a class="btn btn-danger" href="{{ url_for('logout') }}" style="font-size: 20px;">Log Out</a>
+    </div>  
+        
     </div>
   {% endblock %}
 </body>

@@ -3,9 +3,9 @@
 {% block style %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
-    .custom-table-header {
+    /* .custom-table-header {
         background-color: #4a90e2;
-        color: white;
+        color: rgb(15, 12, 12);
     }
     .custom-table-row {
         background-color: #34495e;
@@ -13,30 +13,37 @@
     }
     .custom-table-row:nth-child(even) {
         background-color: #2c3e50;
-    }
+    } */
 
 </style>
 {% endblock %}
 
 {% block content %}
 <body>
-  <div class="container mt-5" style="color:white;margin-top:5%;font-size:20px;">
-    <table class="table table-bordered text-white">
-        <thead class="custom-table-header">
+  <div class="container mt-5" style="color:rgb(255, 255, 255);font-size:20px;">
+   <div class="col-md-offset-2 col-md-8">
+    <div>
+        <h1 class="text-center" style="color: aliceblue;">Voters List</h1>
+    </div>
+    <hr>
+    <table class="table table-bordered table-dark" style="width:700px;">
+        <thead class="custom-table-header bg-info">
             <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Voter ID</th>
+                <th scope="col" style="text-align:center; color: black;">Name</th>
+                <th scope="col" style="text-align:center; color: black;">Voter ID</th>
             </tr>
         </thead>
         <tbody>
             {% for voter in voters %}
-                <tr class="custom-table-row">
+                <tr class="custom-table-row bg-primary text-center" >
                     <td>{{ voter.name }}</td>
                     <td>{{ voter.voter_id }}</td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+
+   </div>
   </div>
 </body>
 {% endblock %}

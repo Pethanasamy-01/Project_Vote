@@ -5,14 +5,23 @@
     <title>Title</title>
     {% include 'header.html' %}
     {% include 'footer.html' %}
+
     <style>
-        body {
-            background: url('/static/image/4.jpg') no-repeat center center fixed;
-            background-size: cover;
+        .parent{
+            background: url('/static/image/4.jpg');
+background-size: cover; /* Ensures the image covers the entire container */
+background-position: center; /* Centers the image */
+background-repeat: no-repeat;
+height: 100vh;
+width: 100%;
+
         }
+        
         .header-container {
             background: url('/static/image/1.jpg');
             padding: 20px;
+           
+
         }
         nav ul {
             display: flex;
@@ -37,34 +46,38 @@
         h1, h2, h3 {
             padding-left: 10%;
             margin-top: 50px;
-            color: yellow;
+            color: rgb(0, 0, 0);
             font-size: 40px;
         }
         h2 {
-            color: white;
+            color: rgb(0, 0, 0);
         }
         h3 {
-            color: white;
+            color: rgb(0, 0, 0);
         }
     </style>
 </head>
-<body>
+<body class="parent">
     <div class="header-container">
         <nav>
             <ul>
+                {% if "email" not in session %}
                 <li><a class="nav-button" href="{{ url_for('signup') }}">Sign Up</a></li>
                 <li><a class="nav-button" href="{{ url_for('login') }}">Log In</a></li>
-                <li><a class="nav-button" href="{{ url_for('voters_list') }}">Voters List</a></li>
-                <li><a class="nav-button" href="{{ url_for('admin') }}">Admin</a></li>
+                {% else %}
+                
+                <li><a class="nav-button" href="{{ url_for('voters_list')}}">Voters List</a></li>
                 <li><a class="nav-button" href="{{ url_for('vote') }}">Vote</a></li>
+                <li><a class="nav-button" href="{{ url_for('admin') }}">Admin</a></li>
+                {% endif %}
             </ul>
         </nav>
     </div>
 
     {% block content %}
-       <h1> Welcome To <span style="color:white;">Our Page</span></h1>
-       <h2>For</h2>
-       <h3>Show Your <span>Power</span></h3>
+       <h1 style="font-size:50px; margin-top:10%;"> Welcome To <span style="color:rgb(0, 0, 0);">Our Page</span></h1>
+       <h2 style="font-size:50px;">For</h2>
+       <h3 style="font-size:50px;">Show Your <span>Power</span></h3>
     {% endblock %}
 </body>
 </html>
