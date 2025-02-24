@@ -18,7 +18,7 @@ db=SQLAlchemy(app)
 class Admin(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     name=db.Column(db.String(100),nullable=False)
-    password
+    password=db.Column(db.String(100))
     email=db.Column(db.String(100),unique=True)
     voters=db.relationship("Voter",backref="admin",lazy=False)
 class Voter(db.Model):
